@@ -14,6 +14,11 @@ public class Circle {
         this.colour = colour;
     }
 
+    public Circle(double radius, double d) {
+        this.radius = radius;
+        setColour(d);
+    }
+
     public double getRadius() {
         return radius;
     }
@@ -30,11 +35,20 @@ public class Circle {
         this.colour = colour;
     }
 
+    public void setColour(double d) {
+        colour = (d < 10) ? "Red" : (d < 50) ? "Amber" : "Green";
+    }
+
     public double getArea() {
         return Math.PI * Math.pow(radius, 2);
     }
 
     public double getCircumference() {
         return 2 * radius * Math.PI;
+    }
+
+    @Override
+    public String toString() {
+        System.out.println("Meow: " + colour + radius);
     }
 }
