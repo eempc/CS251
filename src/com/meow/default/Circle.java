@@ -49,6 +49,6 @@ public class Circle {
 
     @Override
     public String toString() {
-        System.out.println("Meow: " + colour + radius);
+        return "Meow: " + colour + radius;
     }
 }

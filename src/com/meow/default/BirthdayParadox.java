@@ -14,7 +14,14 @@ The birthday paradox says that the probability that two people in a room will ha
 // Option 3 - calculate mathematically, this one could probably be googled way too easily
 // If 2 people = 1/365
 // If 3 people = etc...
-
+// https://math.stackexchange.com/questions/2432377/probability-for-someone-in-room-having-same-name-as-someone-else-in-the-room
+//https://math.stackexchange.com/questions/2431094/probability-for-first-person-in-room-having-same-name-as-someone-else-in-the-roo
+// Although this doesn't answer your question, here is an alternative approach. You can think of the solution as the probability that none of them have the same name, which is
+//
+//1−(1112⋅1012⋅…⋅612)
+//
+//If Rumpelstiltskin is one of the names given to one of the 7
+//people, then none of the other people can be named Rumpelstiltskin, which leaves 11 out of 12 names we can assign for our second choice. If Jerry is one of the names we can give, and we end up naming someone Jerry, then the next name we assign cannot be Jerry and it also cannot be Rumpelstiltskin. This leaves 10 out of 12 names for assignment and so on and so forth.
 
 public class BirthdayParadox {
 }
