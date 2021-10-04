@@ -1,6 +1,6 @@
-package com.company;
+package com.meow.shapes;
 
-public class Cylinder extends com.company.Circle {
+public class Cylinder extends Circle {
     private double height;
 
     public Cylinder(double height, double radius) {

@@ -1,4 +1,4 @@
-package com.company;
+package com.meow.shapes;
 
 public class Circle {
     private double radius;
@@ -49,6 +49,6 @@ public class Circle {
 
     @Override
     public String toString() {
-        return "Meow: " + colour + radius;
+        return "Meow, colour and radius: " + colour + " " + radius;
     }
 }

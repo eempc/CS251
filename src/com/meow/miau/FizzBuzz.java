@@ -1,4 +1,4 @@
-package com.company;
+package com.meow.miau;
 
 import java.util.Scanner;
 

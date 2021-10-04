@@ -1,4 +1,4 @@
-package com.company;
+package com.meow.miau;
 /*
 1. Consider the logic of the program and create a Word document that shows your logic either, this can be in any form that suits you provided it is easily understood. You can use a form of structured English, more formal pseudocode or a diagram.
 
@@ -23,5 +23,66 @@ The birthday paradox says that the probability that two people in a room will ha
 //If Rumpelstiltskin is one of the names given to one of the 7
 //people, then none of the other people can be named Rumpelstiltskin, which leaves 11 out of 12 names we can assign for our second choice. If Jerry is one of the names we can give, and we end up naming someone Jerry, then the next name we assign cannot be Jerry and it also cannot be Rumpelstiltskin. This leaves 10 out of 12 names for assignment and so on and so forth.
 
+// What is the probability that nobody in the room has the same name?
+// Assume all names have the same equal chance of happening, same as an equal distribution of birthdays (not including the leap year)
+
+// Possible birthdays = 365
+// Number of people in the room = 20
+
+import java.util.ArrayList;
+import java.util.Random;
+
 public class BirthdayParadox {
+    private int rooms; // Number of rooms, how many rooms you want to simulate
+    private int n; // Number of people per room, i.e. 23
+    private int possibilities; // Number of possible birthdays, i.e. 365
+
+    private Random r;
+
+    public BirthdayParadox(int rooms, int n, int possibilities) {
+        this.rooms = rooms;
+        this.n = n;
+        this.possibilities = possibilities;
+        r = new Random();
+    }
+
+    public void simulate() {
+        int yesCount = 0;
+        int noCount = 0;
+
+        for (int i = 0; i < rooms; i++) {
+            ArrayList<Integer> existing = new ArrayList<>();
+            for (int j = 0; j < n; j++) {
+                int next = r.nextInt(possibilities);
+//                System.out.println(next);
+                if (existing.contains(next)) {
+                    noCount++;
+                    break;
+                } else {
+                    existing.add(next);
+                }
+
+                if (j == n - 1) {
+                    yesCount++;
+                }
+            }
+        }
+
+        System.out.println("Yes, all unique birthdays " + yesCount);
+        System.out.println("No, some matching birthdays " + noCount);
+    }
+
+
+
+    public double probability(int possibilities, int x) {
+        double temp = 1;
+        for (int i = possibilities - 1; i >= x - 1; i--) {
+
+            temp *= (double)i/(double)possibilities;
+            System.out.println("Current: " + i + "; current temp: " + temp);
+        }
+
+        return (double)1 - temp;
+    }
+
 }
