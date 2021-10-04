@@ -1,6 +1,6 @@
 package com.meow.shapes;
 
-public class Circle {
+public class Circle extends Shape {
     private double radius;
     private String colour;
 
@@ -39,11 +39,13 @@ public class Circle {
         colour = (d < 10) ? "Red" : (d < 50) ? "Amber" : "Green";
     }
 
+    @Override
     public double getArea() {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    public double getCircumference() {
+    @Override
+    public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
 

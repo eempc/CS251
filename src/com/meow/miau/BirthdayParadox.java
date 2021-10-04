@@ -29,8 +29,12 @@ The birthday paradox says that the probability that two people in a room will ha
 // Possible birthdays = 365
 // Number of people in the room = 20
 
+// With 23 individuals, there are (23 × 22) / 2 = 253 pairs to consider, which is well over half the number of days in a year (182.5 or 183).
+
 import java.util.ArrayList;
 import java.util.Random;
+
+import static com.meow.miau.Helpers.factorialWithMin;
 
 public class BirthdayParadox {
     private int rooms; // Number of rooms, how many rooms you want to simulate
@@ -54,7 +58,6 @@ public class BirthdayParadox {
             ArrayList<Integer> existing = new ArrayList<>();
             for (int j = 0; j < n; j++) {
                 int next = r.nextInt(possibilities);
-//                System.out.println(next);
                 if (existing.contains(next)) {
                     noCount++;
                     break;
@@ -68,21 +71,15 @@ public class BirthdayParadox {
             }
         }
 
-        System.out.println("Yes, all unique birthdays " + yesCount);
-        System.out.println("No, some matching birthdays " + noCount);
+        System.out.println("All unique birthdays " + yesCount);
+        System.out.println("At least one matching birthdays " + noCount);
     }
 
-
-
-    public double probability(int possibilities, int x) {
+    public double probability1() {
         double temp = 1;
-        for (int i = possibilities - 1; i >= x - 1; i--) {
-
-            temp *= (double)i/(double)possibilities;
-            System.out.println("Current: " + i + "; current temp: " + temp);
+        for (int i = possibilities - 1; i >= possibilities - n + 1; i--) {
+            temp *= (double)i/possibilities;
         }
-
-        return (double)1 - temp;
+        return 1.0 - temp;
     }
-
 }
