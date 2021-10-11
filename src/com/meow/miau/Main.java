@@ -45,11 +45,10 @@ public class Main {
         System.out.println("kitten size again " + kitten.countSize());
 
         kitten.addFirst(5);
-        kitten.addFirst(5);
-        kitten.addFirst(5);
-
         System.out.println("kitten size: " + kitten.size());
         System.out.println("kitten size again " + kitten.countSize());
-
+        kitten.addFirst(5);
+        System.out.println("kitten size: " + kitten.size());
+        System.out.println("kitten size again " + kitten.countSize());
     }
 }

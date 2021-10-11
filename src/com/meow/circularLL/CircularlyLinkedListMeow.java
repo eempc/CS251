@@ -16,7 +16,7 @@ public class CircularlyLinkedListMeow<E> {
             return 0;
         }
 
-        if (tail.getNext() == null) {
+        if (tail.getNext() == tail) {
             return 1;
         }
 

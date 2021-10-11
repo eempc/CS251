@@ -4,6 +4,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
     private NodeCat head;
     private static int size;
 
+    // Θ(n) adding onto the end
     public static SingularlyLinkedListMeow insert(SingularlyLinkedListMeow list, int x) {
         NodeCat newNodeCat = new NodeCat(x);
         newNodeCat.next = null;
@@ -21,6 +22,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
         return list;
     }
 
+    // Θ(n) Theta Tight bound
     public int countSize() {
         NodeCat n = head;
         if (n == null) {
