@@ -19,7 +19,17 @@ public class DoublyLinkedListMeow<E> {
     }
 
     public int countSize() {
+        NodeKitten k = head;
+        if (k == null) {
+            return 0;
+        }
 
+        int x = 1;
+        while (k.next != null) {
+            x++;
+            k = k.next;
+        }
+        return x;
     }
 
     public void addFirst(E e) {
@@ -58,6 +68,7 @@ public class DoublyLinkedListMeow<E> {
         public NodeKitten(E element, NodeKitten<E> next, NodeKitten<E> prev) {
             this.element = element;
             this.next = next;
+            this.prev = prev;
         }
 
         public E getElement() {

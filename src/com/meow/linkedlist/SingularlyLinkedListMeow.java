@@ -38,6 +38,51 @@ public class SingularlyLinkedListMeow implements Cloneable {
         return x;
     }
 
+    public void addLast(NodeCat n) {
+        NodeCat x = head;
+        if (head == null) {
+            head = n;
+        } else {
+            while (x.next != null) {
+                x = x.next;
+            }
+            x.next = n;
+        }
+        size++;
+    }
+
+//    public void removeFirst() {
+//        head = head.next;
+//        // How to kill the unlinked Node? Automatic GC?
+//    }
+
+    public NodeCat removeFirst() {
+        NodeCat temp = head;
+        head = head.next;
+        return temp;
+    }
+
+    // Rotate by creating new node
+    public void rotate() {
+        NodeCat newLast = head; // reference, not new NodeCat()
+        addLast(newLast);
+        head = head.next;
+        newLast.next = null;
+    }
+
+    // Rotate by swapping data down the line? That's ridiculous!
+    public void rotate2() {
+
+    }
+
+    // AddLast (head)
+    // head = head.next
+    // Traverse to the end until the currentNode.next is equal to head and set the current node's next to be null to break the circle
+    public void rotate3() {
+        addLast(removeFirst());
+    }
+
+
     public static void printList(SingularlyLinkedListMeow list) {
         NodeCat currentNodeCat = list.head;
         while (currentNodeCat != null) {
@@ -45,6 +90,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
             currentNodeCat = currentNodeCat.next;
         }
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -93,14 +139,5 @@ public class SingularlyLinkedListMeow implements Cloneable {
     }
 
     // Static inner class
-    static class NodeCat {
-        int data;
-        NodeCat next;
 
-        // Constructor
-        NodeCat(int d) {
-            data = d;
-            next = null;
-        }
-    }
 }

@@ -1,15 +1,31 @@
 package com.meow.miau;
 
 import com.meow.circularLL.CircularlyLinkedListMeow;
+import com.meow.linkedlist.NodeCat;
 import com.meow.linkedlist.SingularlyLinkedListMeow;
 import com.meow.shapes.Circle;
 import com.meow.shapes.Cylinder;
 
 import java.util.Scanner;
+import java.util.prefs.NodeChangeEvent;
 
 public class Main {
-
     public static void main(String[] args) {
+        SingularlyLinkedListMeow kittyCat = new SingularlyLinkedListMeow();
+        kittyCat.addLast(new NodeCat(5));
+        kittyCat.addLast(new NodeCat(4));
+        kittyCat.addLast(new NodeCat(3));
+        kittyCat.printList(kittyCat);
+        kittyCat.rotate();
+        kittyCat.printList(kittyCat);
+
+        int[] aaaa = {1,2,3};
+        int[] bbbb = aaaa.clone();
+        System.out.println(aaaa == bbbb ? "Same Instance" : "Different Instance");
+        bbbb[0] = 5;
+        System.out.println(aaaa[0]);
+        System.out.println(bbbb[0]);
+
 	// write your code here
         System.out.println("Enter radius");
         Scanner s = new Scanner(System.in);
