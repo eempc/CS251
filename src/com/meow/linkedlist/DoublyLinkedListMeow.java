@@ -4,10 +4,17 @@ import com.meow.circularLL.NodeMeow;
 import org.w3c.dom.Node;
 
 public class DoublyLinkedListMeow<E> {
+    // Usually 2 Sentinel nodes
+    // If 1 sentinel node, it can be a circular
     private NodeKitten<E> head;
+    private NodeKitten<E> tail;
     private int size = 0;
 
+    // Minimum of 2 nodes
     public DoublyLinkedListMeow() {
+        head = new NodeKitten<>(null, null, null);
+        tail = new NodeKitten<>(null, head, null);
+        head.setNext(tail);
     }
 
     public DoublyLinkedListMeow(NodeKitten<E> head) {
@@ -30,6 +37,14 @@ public class DoublyLinkedListMeow<E> {
             k = k.next;
         }
         return x;
+    }
+
+    // first and last should be Theta(1) access
+    public E first() {
+        if (isEmpty()) {
+            return null;
+        }
+        return head.getNext().getElement();
     }
 
     public void addFirst(E e) {
@@ -55,6 +70,20 @@ public class DoublyLinkedListMeow<E> {
             NodeKitten newest = new NodeKitten(e, null, n);
             n.setNext(newest);
         }
+    }
+
+    public void insertAfter(NodeKitten targetNode, NodeKitten newNode) {
+        newNode.prev = targetNode;
+        // Inserting it as last
+        if (targetNode.next == null) {
+            newNode.next = null;
+            // then set last node as newNode
+            // setLast = newNode; // Use sentinel node?
+        } else {
+            newNode.next = targetNode.next;
+            targetNode.next.prev = newNode;
+        }
+        targetNode.next = newNode;
     }
 
     static class NodeKitten<E> {
