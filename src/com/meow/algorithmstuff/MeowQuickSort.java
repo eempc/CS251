@@ -2,8 +2,10 @@ package com.meow.algorithmstuff;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 
 public class MeowQuickSort implements Algorithm {
+    private Queue meow;
 
     @Override
     public void run(List<Integer> listToSort) {

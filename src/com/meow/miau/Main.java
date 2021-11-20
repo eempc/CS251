@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.prefs.NodeChangeEvent;
 
 public class Main {
     public static void main(String[] args) {
+        //Queue<String> meow = new Queue<String>(); you can no longer do this
         SingularlyLinkedListMeow kittyCat = new SingularlyLinkedListMeow();
         kittyCat.addLast(new NodeCat(5));
         kittyCat.addLast(new NodeCat(4));

@@ -4,7 +4,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
     private NodeCat head;
     private static int size;
 
-    // Θ(n) adding onto the end
+    // Θ(n) adding onto the end, to a particular list, this is a reference to another list, not necessarily this one
     public static SingularlyLinkedListMeow insert(SingularlyLinkedListMeow list, int x) {
         NodeCat newNodeCat = new NodeCat(x);
         newNodeCat.next = null;
@@ -12,6 +12,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
         if (list.head == null) {
             list.head = newNodeCat;
         } else {
+            // You have to traverse until the end, calling it last wasn't the best idea
             NodeCat last = list.head;
             while (last.next != null) {
                 last = last.next;
@@ -38,6 +39,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
         return x;
     }
 
+    // This is the proper insertion for this class
     public void addLast(NodeCat n) {
         NodeCat x = head;
         if (head == null) {
@@ -59,7 +61,7 @@ public class SingularlyLinkedListMeow implements Cloneable {
     public NodeCat removeFirst() {
         NodeCat temp = head;
         head = head.next;
-        return temp;
+        return temp; // or destroy it
     }
 
     // Rotate by creating new node
